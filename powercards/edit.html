@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		
+		<title>D&amp;D Power Card Editor</title>
+		
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0">
+		<link href="css/edit.css" rel="stylesheet" type="text/css">
+		<link href="css/menu.css" rel="stylesheet" type="text/css">
+		
+		<script type="text/javascript" src="js/thirdparty/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/CardDefinitions.js"></script>
+		<script type="text/javascript" src="js/TableMultiListBuilder.js"></script>
+		<script type="text/javascript" src="js/Observable.js"></script>
+		<script type="text/javascript" src="js/FileDataLoader.js"></script>
+		<script type="text/javascript" src="js/CardLoader.js"></script>
+		<script type="text/javascript" src="js/Utility.js"></script>
+		<script type="text/javascript" src="js/ServerInteractionManager.js"></script>
+		<script type="text/javascript" src="js/editor.js"></script>
+	</head>
+	
+	<body>
+		<div id="toolbar"><div>
+			<button id="new">Create New</button>
+			<button id="export">Export JSON</button>
+			<button id="import">Import JSON<input type="file" id="importFile"></button>
+			<button id="save">Save to server</button>
+			<button id="load">Load from server</button>
+		</div></div>
+		
+		<div id="cards"></div>
+	</body>
+</html>

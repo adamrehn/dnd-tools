@@ -1,0 +1,112 @@
+@media only screen and (max-width: 800px)
+{
+	h1 {
+		text-align: center;
+	}
+}
+
+@media only screen and (min-width: 800px)
+{
+	.card
+	{
+		display: inline-block;
+		margin-right: 1em;
+		max-width: 500px;
+	}
+}
+
+div, p, a, li { -webkit-text-size-adjust:none !important; }
+
+h1
+{
+	font-size: 1.5em;
+	margin-bottom: 1em;
+}
+
+div + h1 {
+	margin-top: 2em;
+}
+
+body
+{
+	margin: 0.5em;
+	font-family: sans-serif;
+}
+
+p {
+	margin: 0;
+}
+
+.card
+{
+	border: 0.25em solid #000;
+	background-color: #fff;
+	border-radius: 2em;
+	padding: 1em;
+	padding-top: 0;
+	text-align: center;
+}
+
+.card.used {
+	opacity: 0.25;
+}
+
+.card + .card {
+	margin-top: 1em;
+}
+
+.field
+{
+	display: inline-block;
+	padding-top: 1em;
+	margin-right: 0.5em;
+	text-align: center;
+}
+
+.field.block
+{
+	display: block;
+	margin-right: 0;
+}
+
+.field.bold .value {
+	font-weight: bold;
+}
+
+.field .label
+{
+	font-size: 0.75em;
+	font-weight: bold;
+	padding-bottom: 0.5em;
+}
+
+.field.block .label, .field.block .value {
+	text-align: left;
+}
+
+.field.block .value p + p {
+	margin-top: 1em;
+}
+
+.field .value
+{
+	font-size: 0.8em;
+	background-color: #fff;
+	border: 1px solid #000;
+	padding: 0.5em 0.75em;
+}
+
+#fileInput
+{
+	position: absolute;
+	top:      0;
+	left:     0;
+	opacity:  0;
+}
+
+#serverInteraction
+{
+	padding-top: 1em;
+	text-align: center;
+	background-color: #fff;
+}

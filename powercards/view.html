@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		
+		<title>D&amp;D Power Card Viewer</title>
+		
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0">
+		<link href="css/view.css" rel="stylesheet" type="text/css">
+		<link href="css/menu.css" rel="stylesheet" type="text/css">
+		
+		<script type="text/javascript" src="js/thirdparty/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/thirdparty/marked.js"></script>
+		<script type="text/javascript" src="js/CardDefinitions.js"></script>
+		<script type="text/javascript" src="js/CardRenderer.js"></script>
+		<script type="text/javascript" src="js/Observable.js"></script>
+		<script type="text/javascript" src="js/FileDataLoader.js"></script>
+		<script type="text/javascript" src="js/CardLoader.js"></script>
+		<script type="text/javascript" src="js/Utility.js"></script>
+		<script type="text/javascript" src="js/ServerInteractionManager.js"></script>
+		<script type="text/javascript">
+			
+			function displayCards(cards)
+			{
+				//Clear the page
+				var body = $(document.getElementsByTagName('body')[0]);
+				body.empty();
+				
+				//Sort the cards by type and name
+				cards = CardDefinitions.sortCards(cards);
+				
+				//Section the cards by type
+				$.each(CardDefinitions.types, function(index, type)
+				{
+					//Add a heading for the current card type
+					var heading = $(document.createElement('h1')).text(type.label);
+					body.append(heading);
+					
+					//Add each of the cards of the current card type
+					$.each(cards, function(index, card)
+					{
+						if (card.type == type.name) {
+							body.append( CardRenderer.generateCardDiv(card) );
+						}
+					});
+				});
+			}
+			
+			$(document).ready(function()
+			{
+				//Add the CSS styles for the supported card types
+				var stylesheet = $(document.createElement('style')).attr('type', 'text/css');
+				$.each(CardDefinitions.types, function(index, type)
+				{
+					stylesheet.text( stylesheet.text() + '.card.' + type.name + ' { border-color: ' + type.border + '; background-color: ' + type.background + '; }');
+				});
+				stylesheet.appendTo('head');
+				
+				//Create a card loader and bind it to the file input element
+				var loader = new CardLoader();
+				loader.bindToFileInput( $('#fileInput').get(0) );
+				
+				//Create a server interaction manager instance
+				var server = new ServerInteractionManager(null);
+				
+				//When a load operation has been requested by the user, perform it
+				server.loadRequested(function(setName) {
+					loader.loadFromServer(setName);
+				});
+				
+				//When a card set has been loaded, display it
+				loader.loaded(function(cards) {
+					displayCards(cards);
+				});
+				
+				//If an error occurs, inform the user
+				loader.error(function() {
+					alert('Error: failed to parse JSON data!');
+				});
+				
+				//Add the event handler for the "Import JSON" menu option
+				$('#import').click(function()
+				{
+					//Dispatch a click event to the file input element
+					Utility.dispatchClickEvent('fileInput');
+				});
+				
+				//Add the event handler for the "Load from server" menu option
+				$('#load').click(function() {
+					server.showLoadDialog();
+				});
+			});
+			
+		</script>
+		
+	</head>
+	
+	<body>
+		
+		<div id="loadMenu" class="menu">
+			
+			<h1>View existing cards</h1>
+			
+			<ul>
+				<li id="import"><a href="#">Import JSON from a file</a><input type="file" id="fileInput"></li>
+				<li id="load"><a href="#">Load a saved card set from the server</a></li>
+			</ul>
+			
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,82 @@
+html, body {
+	margin: 0;
+}
+
+#toolbar
+{
+	position: fixed;
+	width: 100%;
+	background-color: rgba(0, 0, 128, 0.75);
+}
+
+#toolbar > div {
+	padding: 1em;
+}
+
+#toolbar button
+{
+	padding: 0.5em 1em;
+	margin-right: 1em;
+}
+
+a button
+{
+	color: #000;
+	text-decoration: none;
+}
+
+#importFile
+{
+	position: absolute;
+	top:      0;
+	left:     0;
+	opacity:  0;
+}
+
+#cards
+{
+	padding: 1em;
+	padding-top: 5em;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table.multiList > tbody > tr
+{
+	border: 1px solid #ccc;
+}
+
+table.multiList > tbody > tr > td {
+	padding: 1em;
+}
+
+table.multiList > tbody > tr:last-child {
+	border: none;
+}
+
+input, textarea {
+	width: 500px;
+}
+
+textarea
+{
+	height: 200px;
+}
+
+#serverInteraction
+{
+	background-color: rgba(55,55,55,0.75);
+}
+
+#serverInteraction > div
+{
+	background-color: #fff;
+	padding: 1em;
+	width: 80%;
+	max-width: 700px;
+	margin-top: 4em;
+	margin-left: auto;
+	margin-right: auto;
+}

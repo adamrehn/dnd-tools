@@ -1,0 +1,45 @@
+.menu
+{
+	font-family: sans-serif;
+	width: 95%;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.menu ul, .menu ul li
+{
+	list-style-type: none;
+	margin:  0;
+	padding: 0;
+}
+
+.menu ul li
+{
+	background-color: #aceeff;
+	cursor: pointer;
+	text-align: center;
+	border: 1px solid #777;
+	margin-top: 1em;
+}
+
+.menu ul li a
+{
+	text-decoration: none;
+	display: block;
+	padding: 1em;
+	color: #000;
+}
+
+.menu h1
+{
+	text-align: center;
+	font-size: 1.75em;
+}
+
+#serverInteraction ul {
+	margin: 2em 0;
+}
+
+#serverInteraction li {
+	padding: 1em;
+}
