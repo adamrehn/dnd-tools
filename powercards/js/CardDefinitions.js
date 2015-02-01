@@ -45,6 +45,13 @@ CardDefinitions.types = [
 		"label":      "Daily",
 		"border":     "#3e3f3f",
 		"background": "#ccc"
+	},
+	
+	{
+		"name":       "item",
+		"label":      "Magic Item",
+		"border":     "#ffba00",
+		"background": "#ffedca"
 	}
 	
 ];

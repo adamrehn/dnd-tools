@@ -45,9 +45,10 @@ function loadCardSet(cards)
 		"type": "dropdown",
 		"preText": "Type: ",
 		"dropDownValues": [
-			{'name': 'At-Will',   'value': 'atwill'},
-			{'name': 'Encounter', 'value': 'encounter'},
-			{'name': 'Daily',     'value': 'daily'}
+			{'name': 'At-Will',    'value': 'atwill'},
+			{'name': 'Encounter',  'value': 'encounter'},
+			{'name': 'Daily',      'value': 'daily'},
+			{'name': 'Magic Item', 'value': 'item'}
 		]
 	}];
 	
